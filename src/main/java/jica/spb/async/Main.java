@@ -9,18 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         AsyncLoop asyncLoop = new AsyncLoop();
-        asyncLoop.submit(IntStream.range(0, 100)
-                        .mapToObj(Main::getRunnable))
-                .whenException(e -> {
-                    throw new RuntimeException("Some Exception");
-                })
-                .getResults()
-                .forEach(option -> {
-//                    System.out.println(option);
-                    if (option.hasValue()) {
-                        System.out.println("value" + option.value());
-                    }
-                });
+        asyncLoop.supply(IntStream.range(0, 100).mapToObj(Main::getRunnable))
+                .whenException(System.out::println)
+                .nonNullValues()
+                .forEach(System.out::println);
     }
 
     @NotNull
@@ -29,6 +21,8 @@ public class Main {
             System.out.println("hello " + finalI);
             if (finalI % 10 == 0) {
                 throw new RuntimeException();
+            } else if (finalI % 3 == 0) {
+                return null;
             }
             return finalI;
         };
