@@ -19,7 +19,7 @@ public class ConsumerWrapper<I> {
         return new ConsumerWrapper<>(consumer, input);
     }
 
-    public static <R> Function<R, ConsumerWrapper<R>> wrap(Consumer<R> consumer) {
+    public static <R> Function<R, ConsumerWrapper<R>> of(Consumer<R> consumer) {
         return input -> ConsumerWrapper.of(consumer, input);
     }
 }

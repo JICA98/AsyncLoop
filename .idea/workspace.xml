@@ -8,8 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FnWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <workItem from="1691769998527" duration="56000" />
       <workItem from="1691770065206" duration="2366000" />
       <workItem from="1691811029443" duration="14115000" />
-      <workItem from="1691849753880" duration="2517000" />
+      <workItem from="1691849753880" duration="7063000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -112,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691840653749</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="some more">
+      <option name="closed" value="true" />
+      <created>1691852351768</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691852351768</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

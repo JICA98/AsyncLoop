@@ -6,6 +6,7 @@ import lombok.Value;
 
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 @Value
 @RequiredArgsConstructor
@@ -51,6 +52,20 @@ public class Result<T> {
 
     public Optional<T> value() {
         return Optional.ofNullable(value);
+    }
+
+    public <T1 extends Throwable> Result<T> elseThrow(T1 throwable) throws T1 {
+        if (hasException()) {
+            throw throwable;
+        }
+        return this;
+    }
+
+    public <T1 extends Throwable> Result<T> elseThrow(Function<Throwable, T1> function) throws T1 {
+        if (hasException()) {
+            throw function.apply(exception);
+        }
+        return this;
     }
 
 }

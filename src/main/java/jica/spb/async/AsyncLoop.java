@@ -88,29 +88,29 @@ public class AsyncLoop {
         return createPromise(wrapper);
     }
 
-    public <I, O> Result<O> apply(FnWrapper<I, O> wrapper) {
+    public <I, O> Result<O> apply(FunctionWrapper<I, O> wrapper) {
         Promise<O> promise = createFunctionPromise(wrapper);
         eventloop.run();
         return Result.fromPromise(promise);
     }
 
-    public <I, O> BundleResult<O> apply(Collection<FnWrapper<I, O>> wrappers) {
+    public <I, O> BundleResult<O> apply(Collection<FunctionWrapper<I, O>> wrappers) {
         List<Promise<O>> promises = wrappers.stream().map(this::createFunctionPromise).toList();
         eventloop.run();
         return BundleResult.fromPromises(promises);
     }
 
-    public <I, O> BundleResult<O> apply(Stream<FnWrapper<I, O>> stream) {
+    public <I, O> BundleResult<O> apply(Stream<FunctionWrapper<I, O>> stream) {
         return apply(stream.toList());
     }
 
-    private <I, O> Promise<O> createFunctionPromise(FnWrapper<I, O> wrapper) {
+    private <I, O> Promise<O> createFunctionPromise(FunctionWrapper<I, O> wrapper) {
         Objects.requireNonNull(wrapper);
         Objects.requireNonNull(wrapper.getFunction());
         return createPromise(wrapper);
     }
 
-    private <I, O> Promise<O> createPromise(FnWrapper<I, O> wrapper) {
+    private <I, O> Promise<O> createPromise(FunctionWrapper<I, O> wrapper) {
         return exceptionalPromise(CompletableFuture.supplyAsync(functionWrapper(wrapper)));
     }
 
@@ -129,7 +129,7 @@ public class AsyncLoop {
         return promise;
     }
 
-    private <I, O> Supplier<O> functionWrapper(FnWrapper<I, O> wrapper) {
+    private <I, O> Supplier<O> functionWrapper(FunctionWrapper<I, O> wrapper) {
         return () -> wrapper.getFunction().apply(wrapper.getInput());
     }
 

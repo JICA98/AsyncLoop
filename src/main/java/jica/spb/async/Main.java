@@ -1,6 +1,6 @@
 package jica.spb.async;
 
-import jica.spb.async.model.FnWrapper;
+import jica.spb.async.model.FunctionWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -11,9 +11,9 @@ public class Main {
     public static void main(String[] args) {
         AsyncLoop asyncLoop = new AsyncLoop();
         Stream<Integer> integers = Stream.of(1, 3, 4);
-        asyncLoop.apply(integers.map(FnWrapper.wrap(Main::plusOne)))
+        asyncLoop.apply(integers.map(FunctionWrapper.of(Main::plusOne)))
                 .whenException(System.out::println)
-                .nonNullValues()
+                .values()
                 .forEach(System.out::println);
 
     }

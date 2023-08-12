@@ -6,8 +6,10 @@ import lombok.Value;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 
 @Value
@@ -58,8 +60,41 @@ public class BundleResult<T> {
     }
 
     public Collection<T> nonNullValues() {
-        return results.stream().filter(Result::hasValue).map(Result::value)
-                .filter(Optional::isPresent).map(Optional::get).toList();
+        return results.stream()
+                .filter(Result::hasValue)
+                .map(Result::value)
+                .filter(Optional::isPresent)
+                .map(Optional::get).toList();
+    }
+
+    public static <R, E extends Collection<R>> List<R> flatMapBundle(BundleResult<E> result) {
+        return result.nonNullValues()
+                .stream()
+                .flatMap(Collection::stream)
+                .toList();
+    }
+
+
+    public <T1 extends Throwable> BundleResult<T> elseThrow(T1 throwable) throws T1 {
+        if (hasAnyException()) {
+            throw throwable;
+        }
+        return this;
+    }
+
+    public <T1 extends Throwable> BundleResult<T> elseThrow(Function<Collection<Throwable>, T1> function) throws T1 {
+        if (hasAnyException()) {
+            throw function.apply(exceptions());
+        }
+        return this;
+    }
+
+    public <T1 extends Throwable> BundleResult<T> elseThrowAny(Function<Throwable, T1> function) throws T1 {
+        Optional<Throwable> first = exceptions().stream().findAny();
+        if (first.isEmpty()) {
+            return this;
+        }
+        throw function.apply(first.get());
     }
 
 }
