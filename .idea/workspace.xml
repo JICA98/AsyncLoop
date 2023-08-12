@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="some more">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,21 +38,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jica.spb.async.Main" />
@@ -85,7 +85,8 @@
       <workItem from="1691635963762" duration="81000" />
       <workItem from="1691769998527" duration="56000" />
       <workItem from="1691770065206" duration="2366000" />
-      <workItem from="1691811029443" duration="13970000" />
+      <workItem from="1691811029443" duration="14115000" />
+      <workItem from="1691849753880" duration="2517000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -103,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691827689936</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some more">
+      <option name="closed" value="true" />
+      <created>1691840653749</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691840653749</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

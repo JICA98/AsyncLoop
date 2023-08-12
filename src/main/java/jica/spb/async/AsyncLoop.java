@@ -4,7 +4,6 @@ import io.activej.eventloop.Eventloop;
 import io.activej.promise.Promise;
 import io.activej.promise.SettablePromise;
 import jica.spb.async.model.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -45,14 +44,14 @@ public class AsyncLoop {
         run(stream.collect(Collectors.toList()));
     }
 
-    public <T> Result<T> supply(Supplier<T> supplier) {
+    public <T> Result<T> get(Supplier<T> supplier) {
         Objects.requireNonNull(supplier);
         Promise<T> promise = createPromise(supplier);
         eventloop.run();
         return Result.fromPromise(promise);
     }
 
-    public <T> BundleResult<T> supply(Collection<Supplier<T>> suppliers) {
+    public <T> BundleResult<T> get(Collection<Supplier<T>> suppliers) {
         if (nullOrEmpty(suppliers))
             return BundleResult.empty();
         List<Promise<T>> promises = suppliers.stream().map(this::createPromise).toList();
@@ -60,28 +59,27 @@ public class AsyncLoop {
         return BundleResult.fromPromises(promises);
     }
 
-    public <T> BundleResult<T> supply(Stream<Supplier<T>> stream) {
+    public <T> BundleResult<T> get(Stream<Supplier<T>> stream) {
         if (stream == null)
             return null;
 
-        return supply(stream.toList());
+        return get(stream.toList());
     }
 
-    public <T> Result<Void> consume(ConsumerWrapper<T> wrapper) {
+    public <T> Result<Void> accept(ConsumerWrapper<T> wrapper) {
         Promise<Void> promise = createConsumerPromise(wrapper);
         eventloop.run();
         return Result.fromPromise(promise);
     }
 
-
-    public <T> BundleResult<Void> consume(List<ConsumerWrapper<T>> wrappers) {
+    public <T> BundleResult<Void> accept(List<ConsumerWrapper<T>> wrappers) {
         List<Promise<Void>> promises = wrappers.stream().map(this::createConsumerPromise).toList();
         eventloop.run();
         return BundleResult.fromPromises(promises);
     }
 
-    public <T> BundleResult<Void> consume(Stream<ConsumerWrapper<T>> stream) {
-        return consume(stream.toList());
+    public <T> BundleResult<Void> accept(Stream<ConsumerWrapper<T>> stream) {
+        return accept(stream.toList());
     }
 
     private <T> Promise<Void> createConsumerPromise(ConsumerWrapper<T> wrapper) {
@@ -90,29 +88,29 @@ public class AsyncLoop {
         return createPromise(wrapper);
     }
 
-    public <I, O> Result<O> function(FunctionWrapper<I, O> wrapper) {
+    public <I, O> Result<O> apply(FnWrapper<I, O> wrapper) {
         Promise<O> promise = createFunctionPromise(wrapper);
         eventloop.run();
         return Result.fromPromise(promise);
     }
 
-    public <I, O> BundleResult<O> function(Collection<FunctionWrapper<I, O>> wrappers) {
+    public <I, O> BundleResult<O> apply(Collection<FnWrapper<I, O>> wrappers) {
         List<Promise<O>> promises = wrappers.stream().map(this::createFunctionPromise).toList();
         eventloop.run();
         return BundleResult.fromPromises(promises);
     }
 
-    public <I, O> BundleResult<O> function(Stream<FunctionWrapper<I, O>> stream) {
-        return function(stream.toList());
+    public <I, O> BundleResult<O> apply(Stream<FnWrapper<I, O>> stream) {
+        return apply(stream.toList());
     }
 
-    private <I, O> Promise<O> createFunctionPromise(FunctionWrapper<I, O> wrapper) {
+    private <I, O> Promise<O> createFunctionPromise(FnWrapper<I, O> wrapper) {
         Objects.requireNonNull(wrapper);
         Objects.requireNonNull(wrapper.getFunction());
         return createPromise(wrapper);
     }
 
-    private <I, O> Promise<O> createPromise(FunctionWrapper<I, O> wrapper) {
+    private <I, O> Promise<O> createPromise(FnWrapper<I, O> wrapper) {
         return exceptionalPromise(CompletableFuture.supplyAsync(functionWrapper(wrapper)));
     }
 
@@ -131,7 +129,7 @@ public class AsyncLoop {
         return promise;
     }
 
-    private <I, O> Supplier<O> functionWrapper(FunctionWrapper<I, O> wrapper) {
+    private <I, O> Supplier<O> functionWrapper(FnWrapper<I, O> wrapper) {
         return () -> wrapper.getFunction().apply(wrapper.getInput());
     }
 

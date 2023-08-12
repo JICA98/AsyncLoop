@@ -1,18 +1,25 @@
 package jica.spb.async;
 
+import jica.spb.async.model.FnWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
         AsyncLoop asyncLoop = new AsyncLoop();
-        asyncLoop.supply(IntStream.range(0, 100).mapToObj(Main::getRunnable))
+        Stream<Integer> integers = Stream.of(1, 3, 4);
+        asyncLoop.apply(integers.map(FnWrapper.wrap(Main::plusOne)))
                 .whenException(System.out::println)
                 .nonNullValues()
                 .forEach(System.out::println);
+
+    }
+
+    private static int plusOne(int number) {
+        return number + 1;
     }
 
     @NotNull
