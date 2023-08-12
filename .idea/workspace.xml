@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Async.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Option.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/OptionType.java" afterDir="false" />
+    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/AsyncException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/Async.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Option.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/OptionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ResultType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2TqUESD8RIxtccYvxVsfD7mD8yH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -87,11 +90,24 @@
       <workItem from="1691635963762" duration="81000" />
       <workItem from="1691769998527" duration="56000" />
       <workItem from="1691770065206" duration="2366000" />
-      <workItem from="1691811029443" duration="4474000" />
+      <workItem from="1691811029443" duration="9454000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1691816833247</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691816833247</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
