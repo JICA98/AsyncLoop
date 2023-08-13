@@ -19,7 +19,7 @@ public class BundleResult<T> {
     Collection<Result<T>> results;
 
     public static <R> BundleResult<R> fromPromises(Collection<Promise<R>> promises) {
-        return new BundleResult<R>(promises.stream().map(Result::fromPromise).toList());
+        return new BundleResult<>(promises.stream().map(Result::fromPromise).toList());
     }
 
     public static <R> BundleResult<R> empty() {
