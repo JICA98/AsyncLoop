@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="some more">
+    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="javadoc for more">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ResultType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,7 @@
       <workItem from="1691811029443" duration="14115000" />
       <workItem from="1691849753880" duration="7314000" />
       <workItem from="1691897042786" duration="3261000" />
-      <workItem from="1691922421239" duration="2500000" />
+      <workItem from="1691922421239" duration="3714000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -136,7 +136,47 @@
       <option name="project" value="LOCAL" />
       <updated>1691858569953</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="with eventloop callback">
+      <option name="closed" value="true" />
+      <created>1691925556601</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691925556601</updated>
+    </task>
+    <task id="LOCAL-00007" summary="more stuff">
+      <option name="closed" value="true" />
+      <created>1691925589628</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691925589628</updated>
+    </task>
+    <task id="LOCAL-00008" summary="javadoc for AsyncLoop.java">
+      <option name="closed" value="true" />
+      <created>1691925900543</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691925900543</updated>
+    </task>
+    <task id="LOCAL-00009" summary="javadoc for more">
+      <option name="closed" value="true" />
+      <created>1691926247890</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691926247890</updated>
+    </task>
+    <task id="LOCAL-00010" summary="javadoc for more">
+      <option name="closed" value="true" />
+      <created>1691926338926</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691926338926</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +185,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="some more" />
-    <option name="LAST_COMMIT_MESSAGE" value="some more" />
+    <MESSAGE value="with eventloop callback" />
+    <MESSAGE value="more stuff" />
+    <MESSAGE value="javadoc for AsyncLoop.java" />
+    <MESSAGE value="javadoc for more" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc for more" />
   </component>
 </project>
