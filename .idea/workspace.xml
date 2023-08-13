@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="javadoc for more">
+    <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="updated pom and added license">
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ResultType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -42,7 +49,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "psycho",
+    "last_opened_file_path": "/home/jica/IdeaProjects/async-spb",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +68,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jica.spb.async.Main" />
@@ -94,7 +107,7 @@
       <workItem from="1691811029443" duration="14115000" />
       <workItem from="1691849753880" duration="7314000" />
       <workItem from="1691897042786" duration="3261000" />
-      <workItem from="1691922421239" duration="3714000" />
+      <workItem from="1691922421239" duration="4895000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -176,11 +189,63 @@
       <option name="project" value="LOCAL" />
       <updated>1691926338926</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="javadoc for more">
+      <option name="closed" value="true" />
+      <created>1691926506806</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691926506806</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated pom and added license">
+      <option name="closed" value="true" />
+      <created>1691926891336</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691926891336</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="24d51051-435b-46bd-a9ad-caae466632c4" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="24d51051-435b-46bd-a9ad-caae466632c4">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
@@ -189,6 +254,7 @@
     <MESSAGE value="more stuff" />
     <MESSAGE value="javadoc for AsyncLoop.java" />
     <MESSAGE value="javadoc for more" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc for more" />
+    <MESSAGE value="updated pom and added license" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom and added license" />
   </component>
 </project>
