@@ -90,11 +90,11 @@ public class BundleResult<T> {
     }
 
     public <T1 extends Throwable> BundleResult<T> elseThrowAny(Function<Throwable, T1> function) throws T1 {
-        Optional<Throwable> first = exceptions().stream().findAny();
-        if (first.isEmpty()) {
+        Optional<Throwable> any = exceptions().stream().findAny();
+        if (any.isEmpty()) {
             return this;
         }
-        throw function.apply(first.get());
+        throw function.apply(any.get());
     }
 
 }

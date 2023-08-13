@@ -7,11 +7,7 @@
     <list default="true" id="6f5553f8-8599-4383-8844-b6fdca3477b5" name="Changes" comment="some more">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/AsyncLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/BundleResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/ConsumerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FnWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/FunctionWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jica/spb/async/model/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,26 +36,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "GitIgnore"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jica.spb.async.Main" />
-      <module name="async-spb" />
+      <module name="asyncLoop-spb" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="jica.spb.async.*" />
@@ -88,7 +92,9 @@
       <workItem from="1691769998527" duration="56000" />
       <workItem from="1691770065206" duration="2366000" />
       <workItem from="1691811029443" duration="14115000" />
-      <workItem from="1691849753880" duration="7063000" />
+      <workItem from="1691849753880" duration="7314000" />
+      <workItem from="1691897042786" duration="3261000" />
+      <workItem from="1691922421239" duration="2500000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -122,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691852351768</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="some more">
+      <option name="closed" value="true" />
+      <created>1691858569953</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691858569953</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

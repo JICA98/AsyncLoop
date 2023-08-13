@@ -4,6 +4,7 @@ import io.activej.eventloop.Eventloop;
 import io.activej.promise.Promise;
 import io.activej.promise.SettablePromise;
 import jica.spb.async.model.*;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,26 +16,37 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
 public class AsyncLoop {
 
-    private final Eventloop eventloop;
-
-    public AsyncLoop() {
-        this.eventloop = Eventloop.create().withCurrentThread();
+    private <T> T withEventLoop(Function<Eventloop, T> callBack) {
+        try {
+            Eventloop eventloop = Eventloop.create().withCurrentThread();
+            return callBack.apply(eventloop);
+        } catch (Exception e) {
+            log.error("Error occurred while setting up eventLoop: {}", String.valueOf(e));
+            throw new AsyncException(e);
+        }
     }
 
     public void run(Runnable runnable) {
         Objects.requireNonNull(runnable);
-        eventloop.post(runnable);
-        eventloop.run();
+        withEventLoop(eventloop -> {
+            eventloop.post(runnable);
+            eventloop.run();
+            return null;
+        });
     }
 
     public void run(Collection<Runnable> runnables) {
         if (nullOrEmpty(runnables))
             return;
 
-        runnables.forEach(eventloop::post);
-        eventloop.run();
+        withEventLoop(eventloop -> {
+            runnables.forEach(eventloop::post);
+            eventloop.run();
+            return null;
+        });
     }
 
     public void run(Stream<Runnable> stream) {
@@ -46,17 +58,22 @@ public class AsyncLoop {
 
     public <T> Result<T> get(Supplier<T> supplier) {
         Objects.requireNonNull(supplier);
-        Promise<T> promise = createPromise(supplier);
-        eventloop.run();
-        return Result.fromPromise(promise);
+        return withEventLoop(eventloop -> {
+            Promise<T> promise = createPromise(supplier);
+            eventloop.run();
+            return Result.fromPromise(promise);
+        });
     }
 
     public <T> BundleResult<T> get(Collection<Supplier<T>> suppliers) {
         if (nullOrEmpty(suppliers))
             return BundleResult.empty();
-        List<Promise<T>> promises = suppliers.stream().map(this::createPromise).toList();
-        eventloop.run();
-        return BundleResult.fromPromises(promises);
+
+        return withEventLoop(eventloop -> {
+            List<Promise<T>> promises = suppliers.stream().map(this::createPromise).toList();
+            eventloop.run();
+            return BundleResult.fromPromises(promises);
+        });
     }
 
     public <T> BundleResult<T> get(Stream<Supplier<T>> stream) {
@@ -67,15 +84,19 @@ public class AsyncLoop {
     }
 
     public <T> Result<Void> accept(ConsumerWrapper<T> wrapper) {
-        Promise<Void> promise = createConsumerPromise(wrapper);
-        eventloop.run();
-        return Result.fromPromise(promise);
+        return withEventLoop(eventloop -> {
+            Promise<Void> promise = createConsumerPromise(wrapper);
+            eventloop.run();
+            return Result.fromPromise(promise);
+        });
     }
 
     public <T> BundleResult<Void> accept(List<ConsumerWrapper<T>> wrappers) {
-        List<Promise<Void>> promises = wrappers.stream().map(this::createConsumerPromise).toList();
-        eventloop.run();
-        return BundleResult.fromPromises(promises);
+        return withEventLoop(eventloop -> {
+            List<Promise<Void>> promises = wrappers.stream().map(this::createConsumerPromise).toList();
+            eventloop.run();
+            return BundleResult.fromPromises(promises);
+        });
     }
 
     public <T> BundleResult<Void> accept(Stream<ConsumerWrapper<T>> stream) {
@@ -89,15 +110,19 @@ public class AsyncLoop {
     }
 
     public <I, O> Result<O> apply(FunctionWrapper<I, O> wrapper) {
-        Promise<O> promise = createFunctionPromise(wrapper);
-        eventloop.run();
-        return Result.fromPromise(promise);
+        return withEventLoop(eventloop -> {
+            Promise<O> promise = createFunctionPromise(wrapper);
+            eventloop.run();
+            return Result.fromPromise(promise);
+        });
     }
 
     public <I, O> BundleResult<O> apply(Collection<FunctionWrapper<I, O>> wrappers) {
-        List<Promise<O>> promises = wrappers.stream().map(this::createFunctionPromise).toList();
-        eventloop.run();
-        return BundleResult.fromPromises(promises);
+        return withEventLoop(eventloop -> {
+            List<Promise<O>> promises = wrappers.stream().map(this::createFunctionPromise).toList();
+            eventloop.run();
+            return BundleResult.fromPromises(promises);
+        });
     }
 
     public <I, O> BundleResult<O> apply(Stream<FunctionWrapper<I, O>> stream) {
