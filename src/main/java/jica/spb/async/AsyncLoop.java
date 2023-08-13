@@ -16,6 +16,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This class provides utility methods for working with ActiveJ promises using an event loop.
+ */
 @Slf4j
 public class AsyncLoop {
 
@@ -29,6 +32,11 @@ public class AsyncLoop {
         }
     }
 
+    /**
+     * Executes a runnable task on an event loop.
+     *
+     * @param runnable The task to be executed.
+     */
     public void run(Runnable runnable) {
         Objects.requireNonNull(runnable);
         withEventLoop(eventloop -> {
@@ -38,6 +46,11 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a collection of runnable tasks on an event loop.
+     *
+     * @param runnables The collection of tasks to be executed.
+     */
     public void run(Collection<Runnable> runnables) {
         if (nullOrEmpty(runnables))
             return;
@@ -49,6 +62,11 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a stream of runnable tasks on an event loop.
+     *
+     * @param stream The stream of tasks to be executed.
+     */
     public void run(Stream<Runnable> stream) {
         if (stream == null)
             return;
@@ -56,6 +74,13 @@ public class AsyncLoop {
         run(stream.collect(Collectors.toList()));
     }
 
+    /**
+     * Retrieves the result of a supplier executed on an event loop.
+     *
+     * @param supplier The supplier whose result is to be retrieved.
+     * @param <T>      The type of the result.
+     * @return The result of the supplier wrapped in a Result.
+     */
     public <T> Result<T> get(Supplier<T> supplier) {
         Objects.requireNonNull(supplier);
         return withEventLoop(eventloop -> {
@@ -65,6 +90,13 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Retrieves results from a collection of suppliers executed on an event loop.
+     *
+     * @param suppliers The collection of suppliers whose results are to be retrieved.
+     * @param <T>       The type of the result.
+     * @return The results of the suppliers wrapped in a BundleResult.
+     */
     public <T> BundleResult<T> get(Collection<Supplier<T>> suppliers) {
         if (nullOrEmpty(suppliers))
             return BundleResult.empty();
@@ -76,6 +108,13 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Retrieves results from a stream of suppliers executed on an event loop.
+     *
+     * @param stream The stream of suppliers whose results are to be retrieved.
+     * @param <T>    The type of the result.
+     * @return The results of the suppliers wrapped in a BundleResult.
+     */
     public <T> BundleResult<T> get(Stream<Supplier<T>> stream) {
         if (stream == null)
             return null;
@@ -91,6 +130,13 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a collection of consumer tasks on an event loop and returns a BundleResult.
+     *
+     * @param wrappers The list of consumer wrappers containing the consumer tasks.
+     * @param <T>      The type of input for the consumer.
+     * @return A BundleResult containing promises of the executed consumer tasks.
+     */
     public <T> BundleResult<Void> accept(List<ConsumerWrapper<T>> wrappers) {
         return withEventLoop(eventloop -> {
             List<Promise<Void>> promises = wrappers.stream().map(this::createConsumerPromise).toList();
@@ -99,16 +145,38 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a stream of consumer tasks on an event loop and returns a BundleResult.
+     *
+     * @param stream The stream of consumer wrappers containing the consumer tasks.
+     * @param <T>    The type of input for the consumer.
+     * @return A BundleResult containing promises of the executed consumer tasks.
+     */
     public <T> BundleResult<Void> accept(Stream<ConsumerWrapper<T>> stream) {
         return accept(stream.toList());
     }
 
+    /**
+     * Creates a promise for executing a consumer task on an event loop.
+     *
+     * @param wrapper The consumer wrapper containing the consumer task.
+     * @param <T>     The type of input for the consumer.
+     * @return A Promise representing the execution of the consumer task.
+     */
     private <T> Promise<Void> createConsumerPromise(ConsumerWrapper<T> wrapper) {
         Objects.requireNonNull(wrapper);
         Objects.requireNonNull(wrapper.getConsumer());
         return createPromise(wrapper);
     }
 
+    /**
+     * Executes a function task on an event loop and returns a Result.
+     *
+     * @param wrapper The function wrapper containing the function task.
+     * @param <I>     The input type for the function.
+     * @param <O>     The output type of the function.
+     * @return A Result containing the result of the executed function task.
+     */
     public <I, O> Result<O> apply(FunctionWrapper<I, O> wrapper) {
         return withEventLoop(eventloop -> {
             Promise<O> promise = createFunctionPromise(wrapper);
@@ -117,6 +185,14 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a collection of function tasks on an event loop and returns a BundleResult.
+     *
+     * @param wrappers The collection of function wrappers containing the function tasks.
+     * @param <I>      The input type for the function.
+     * @param <O>      The output type of the function.
+     * @return A BundleResult containing promises of the executed function tasks.
+     */
     public <I, O> BundleResult<O> apply(Collection<FunctionWrapper<I, O>> wrappers) {
         return withEventLoop(eventloop -> {
             List<Promise<O>> promises = wrappers.stream().map(this::createFunctionPromise).toList();
@@ -125,9 +201,18 @@ public class AsyncLoop {
         });
     }
 
+    /**
+     * Executes a stream of function tasks on an event loop and returns a BundleResult.
+     *
+     * @param stream The stream of function wrappers containing the function tasks.
+     * @param <I>    The input type for the function.
+     * @param <O>    The output type of the function.
+     * @return A BundleResult containing promises of the executed function tasks.
+     */
     public <I, O> BundleResult<O> apply(Stream<FunctionWrapper<I, O>> stream) {
         return apply(stream.toList());
     }
+
 
     private <I, O> Promise<O> createFunctionPromise(FunctionWrapper<I, O> wrapper) {
         Objects.requireNonNull(wrapper);
